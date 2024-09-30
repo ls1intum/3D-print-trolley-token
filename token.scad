@@ -28,8 +28,9 @@ module insert_logo() {
     // Import the SVG logo (assumed to be called "logo.svg")
     // The logo is scaled to fit the indent
     scale([indent_diameter/250, indent_diameter/250, 1])
-        translate([-2, 0, disk_thickness - indent_depth/2])
-            import("logo.svg", height=logo_height, center=true);
+        translate([0, 0, disk_thickness - indent_depth-0.1])
+            linear_extrude(height=logo_height)
+                import("logo.svg", center=true);
 }
 
 // Generate the disk and insert the logo
